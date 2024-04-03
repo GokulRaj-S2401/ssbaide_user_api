@@ -2,8 +2,9 @@
 
 $servername = "localhost"; 
 $username = "root"; 
-$password = "kalai_2005"; 
+$password = "Iyappanmagesh2004@";
+$database = "ssbaide"; 
 
-$con = new mysqli($servername, $username, $password);
+$con = new mysqli($servername, $username, $password,$database);
 
 ?>
