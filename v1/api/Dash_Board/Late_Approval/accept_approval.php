@@ -3,13 +3,13 @@ include('../../../../DB/connection.php');
 try
 {
 
-    $dept_id = $_POST['deptid'];
-    $sql = "UPDATE ssbaide_departments SET Is_Active = 0 WHERE Department_Id = ?";
+    $approval_id = $_POST['approvalid'];
+    $sql = "UPDATE late_approval SET Approve = 1,Is_Active = 0 WHERE Approval_Id = ?";
     $stmt = $con->prepare($sql);
-    $stmt->bind_param("i", $dept_id);
+    $stmt->bind_param("i", $approval_id);
     if ($stmt->execute()) 
     {
-        $res = array("status"=>"S","message"=>"Data deleted");
+        $res = array("status"=>"S","message"=>"Approve And Is_active changed");
         echo json_encode($res);
     } else 
     {

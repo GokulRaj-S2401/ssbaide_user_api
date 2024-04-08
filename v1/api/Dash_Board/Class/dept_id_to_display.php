@@ -3,8 +3,8 @@ include('../../../../DB/connection.php');
 try
 {
     $dept_id = $_POST['departmentid'];
-    $sql = "SELECT * FROM ssbaide_classes WHERE Department_Id = ?";
-    $stmt = $conn->prepare($sql);
+    $sql = "SELECT * FROM ssbaide_classes WHERE Department_Id = ? AND IS_Active=1";
+    $stmt = $con->prepare($sql);
     $stmt->bind_param("i", $dept_id);
     $stmt->execute();
     $result = $stmt->get_result();

@@ -3,8 +3,8 @@ include('../../../../DB/connection.php');
 try
 {
     $class_id = $_POST['classid'];
-    $sql = "SELECT * FROM ssbaide_classes WHERE Class_Id = ?";
-    $stmt = $conn->prepare($sql);
+    $sql = "SELECT * FROM ssbaide_classes WHERE Class_Id = ? AND IS_Active=1";
+    $stmt = $con->prepare($sql);
     $stmt->bind_param("i", $class_id);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -20,7 +20,7 @@ try
     } 
     else 
     {
-        $res=array("status"=>"F","message"=>"Internal server error");
+        $res=array("status"=>"F","message"=>"Data was not found");
         echo json_encode($res);
     }
 $stmt->close();

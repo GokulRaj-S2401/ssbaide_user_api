@@ -14,7 +14,7 @@ try
         $sql = "INSERT INTO ssbaide_classes (Class_Name, Department_Id, Created_On) VALUES (?, ?, ?)";
 
 
-        $stmt = $conn->prepare($sql);
+        $stmt = $con->prepare($sql);
 
 
         $stmt->bind_param("sis", $class_name, $department_id, $created_on);

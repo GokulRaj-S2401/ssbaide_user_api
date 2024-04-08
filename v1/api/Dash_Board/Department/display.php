@@ -3,7 +3,7 @@ include("../../../../DB/connection.php");
 
 try 
 {
-    $stmt = $con->prepare("SELECT * from ssbaide_departments ");
+    $stmt = $con->prepare("SELECT * from ssbaide_departments ORDER BY Created_On ASC");
     $stmt->execute();
     $result = $stmt->get_result();
 
