@@ -8,9 +8,11 @@ try{
     $stmt->execute();
     $result = $stmt->get_result();
 
-        if($row = $result->fetch_assoc()){
-            $res = array($row);
-            echo json_encode($res);
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+                $res = array($row);
+                echo json_encode($res);
+            }
         }
         else{
             $res = array("status"=>"F", "message"=>"Internal server error!!");

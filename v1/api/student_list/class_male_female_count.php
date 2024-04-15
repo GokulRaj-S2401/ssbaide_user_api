@@ -3,7 +3,7 @@ include('../../../DB/connection.php');
 
 try{
     $class_id = $_POST['class_id'];
-    $stmt_male = $con->prepare("SELECT COUNT(*) AS count FROM student_list WHERE class_id = ? AND gender = 'm'");
+    $stmt_male = $con->prepare("SELECT COUNT(*) AS count FROM student_list WHERE class_id = ? AND gender = 'male'");
     $stmt_male->bind_param("i", $class_id);
     $stmt_male->execute();
     $stmt_male->bind_result($countm);
@@ -11,7 +11,7 @@ try{
     echo "male count: $countm";
     $stmt_male->close();
 
-    $stmt_female = $con->prepare("SELECT COUNT(*) AS count FROM student_list WHERE class_id = ? AND gender = 'f'");
+    $stmt_female = $con->prepare("SELECT COUNT(*) AS count FROM student_list WHERE class_id = ? AND gender = 'female'");
     $stmt_female->bind_param("i", $class_id);
     $stmt_female->execute();
     $stmt_female->bind_result($countf);
